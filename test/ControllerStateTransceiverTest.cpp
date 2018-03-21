@@ -2,18 +2,18 @@
 // Created by Oleksandra Baukh on 3/20/18.
 //
 #include <gmock/gmock.h>
-#include "ControllerTest.h"
+#include "ControllerStateTransceiverTest.h"
 
 using ::testing::Mock;
 using ::testing::Exactly;
 using ::testing::Return;
 
-void ControllerTest::SetUp() {
+void ControllerStateTransceiverTest::SetUp() {
     Mock::VerifyAndClearExpectations(&mockTransceiver);
-    Mock::VerifyAndClearExpectations(&controller);
+    Mock::VerifyAndClearExpectations(&controllerStateTransceiver);
 }
 
-TEST_F(ControllerTest, messageNewControllerState) {
+TEST_F(ControllerStateTransceiverTest, messageNewControllerState) {
     ControllerState controllerState;
     controllerState.right = true;
     controllerState.a = true;
@@ -21,10 +21,10 @@ TEST_F(ControllerTest, messageNewControllerState) {
             .WillOnce(Return(controllerState));
     EXPECT_CALL(mockTransceiver, send(channelId, controllerState)).Times(Exactly(1));
 
-    controller.onEvent(0);
+    controllerStateTransceiver.onEvent(0);
 }
 
-TEST_F(ControllerTest, doNotMessageTheSameState) {
+TEST_F(ControllerStateTransceiverTest, doNotMessageTheSameState) {
     ControllerState controllerState;
     controllerState.right = true;
     controllerState.a = true;
@@ -33,6 +33,6 @@ TEST_F(ControllerTest, doNotMessageTheSameState) {
             .WillOnce(Return(controllerState));
     EXPECT_CALL(mockTransceiver, send(channelId, controllerState)).Times(Exactly(1));
 
-    controller.onEvent(0);
-    controller.onEvent(1);
+    controllerStateTransceiver.onEvent(0);
+    controllerStateTransceiver.onEvent(1);
 }

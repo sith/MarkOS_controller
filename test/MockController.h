@@ -8,13 +8,13 @@
 #include <gmock/gmock.h>
 #include <Controller.h>
 
+using mark_os::controller::Controller;
+using mark_os::controller::ControllerState;
+
 class MockController : public Controller {
 public:
     MOCK_METHOD0(readControllerState,
                  ControllerState());
-
-    MockController(mark_os::communication::Transceiver<ControllerState> &transceiver, uint8 channelId) : Controller(
-            transceiver, channelId) {};
 };
 
 

@@ -1,10 +1,11 @@
 
 add_executable(controller_test
         main.cpp
-        ControllerTest.cpp
-        ControllerTest.h
         MockTransceiver.h
-        MockController.h)
+        ControllerStateTransceiverTest.h
+        ControllerStateTransceiverTest.cpp
+        MockController.h
+        )
 
 
 #Link with GoogleTest
