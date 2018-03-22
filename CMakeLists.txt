@@ -3,7 +3,13 @@ project(MarkOS_controller)
 
 add_library(${PROJECT_NAME}
         src/Controller.h
-        src/ControllerState.h src/ControllerReceiver.cpp src/ControllerReceiver.h src/ControllerStateTransceiver.cpp src/ControllerStateTransceiver.h)
+        src/ControllerState.h
+        src/ControllerReceiver.cpp
+        src/ControllerReceiver.h
+        src/ControllerStateTransceiver.cpp
+        src/ControllerStateTransceiver.h
+        src/Environment.h
+        src/Environment.cpp)
 
 target_link_libraries(${PROJECT_NAME} LINK_PUBLIC MarkOS_communication)
 target_link_libraries(${PROJECT_NAME} LINK_PUBLIC MarkOS_cycle)

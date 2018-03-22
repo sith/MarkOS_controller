@@ -6,16 +6,16 @@
 namespace mark_os {
     namespace controller {
         struct ControllerState {
-            int16 leftX;
-            int16 leftY;
-            int16 rightX;
-            int16 rightY;
-            bool left;
-            bool right;
-            bool a;
-            bool b;
-            bool x;
-            bool y;
+            int16 leftX = 0;
+            int16 leftY = 0;
+            int16 rightX = 0;
+            int16 rightY = 0;
+            bool left = false;
+            bool right = false;
+            bool a = false;
+            bool b = false;
+            bool x = false;
+            bool y = false;
 
             bool operator==(const ControllerState &rhs) const {
                 return leftX == rhs.leftX &&
