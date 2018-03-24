@@ -11,12 +11,12 @@
 namespace mark_os {
     namespace communication {
 
-        template<typename Message>
-        class MockTransceiver : public mark_os::communication::Transceiver<Message> {
+        template<typename T0>
+        class MockTransceiver : public Transceiver<T0> {
         public:
-            MOCK_METHOD2_T(send,
-                           void(uint8
-                                   channelId, Message & message));
+            MOCK_METHOD1_T(send,
+                           void(Message<T0>
+                                   &message));
         };
 
     }  // namespace communication

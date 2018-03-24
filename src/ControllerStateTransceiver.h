@@ -9,19 +9,17 @@
 
 namespace mark_os {
     namespace controller {
-        class ControllerStateTransceiver : public CycleListener {
+        class ControllerStateTransceiver : public mark_os::cycle::CycleListener {
             Controller *controller;
             mark_os::communication::Transceiver<mark_os::controller::ControllerState> *transceiver;
-            uint8 channelId;
 
             ControllerState previousControllerState;
 
         public:
             ControllerStateTransceiver(Controller &controller,
-                                       communication::Transceiver<ControllerState> &transceiver,
-                                       uint8 channelId);
+                                       communication::Transceiver <ControllerState> &transceiver);
 
-        public:
+
             void onEvent(unsigned long cycleNumber) override;
 
         };

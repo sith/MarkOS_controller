@@ -16,8 +16,7 @@ class ControllerStateTransceiverTest : public testing::Test {
 protected:
     mark_os::communication::MockTransceiver<mark_os::controller::ControllerState> mockTransceiver;
     MockController controller;
-    uint8 channelId = 77;
-    mark_os::controller::ControllerStateTransceiver controllerStateTransceiver{controller, mockTransceiver, channelId};
+    mark_os::controller::ControllerStateTransceiver controllerStateTransceiver{controller, mockTransceiver};
 
     void SetUp() override;
 };

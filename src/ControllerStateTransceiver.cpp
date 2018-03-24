@@ -10,15 +10,14 @@ namespace mark_os {
             auto state = controller->readControllerState();
             if (state != previousControllerState) {
                 previousControllerState = state;
-                transceiver->send(channelId, state);
+                Message<ControllerState> message{0, 0, state};
+                transceiver->send(message);
             }
         }
 
         ControllerStateTransceiver::ControllerStateTransceiver(Controller &controller,
-                                                               communication::Transceiver<ControllerState> &transceiver,
-                                                               uint8 channelId) :
-                controller(&controller),
-                transceiver(&transceiver),
-                channelId(channelId) {}
+                                                               communication::Transceiver<ControllerState> &transceiver)
+                : controller(&controller), transceiver(&transceiver) {}
+
     }
 }

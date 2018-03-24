@@ -19,7 +19,8 @@ TEST_F(ControllerStateTransceiverTest, messageNewControllerState) {
     controllerState.a = true;
     EXPECT_CALL(controller, readControllerState()).Times(1)
             .WillOnce(Return(controllerState));
-    EXPECT_CALL(mockTransceiver, send(channelId, controllerState)).Times(Exactly(1));
+    Message<ControllerState> message{controllerState};
+    EXPECT_CALL(mockTransceiver, send(message)).Times(Exactly(1));
 
     controllerStateTransceiver.onEvent(0);
 }
@@ -31,7 +32,8 @@ TEST_F(ControllerStateTransceiverTest, doNotMessageTheSameState) {
     EXPECT_CALL(controller, readControllerState()).Times(2)
             .WillOnce(Return(controllerState))
             .WillOnce(Return(controllerState));
-    EXPECT_CALL(mockTransceiver, send(channelId, controllerState)).Times(Exactly(1));
+    Message<ControllerState> message{controllerState};
+    EXPECT_CALL(mockTransceiver, send(message)).Times(Exactly(1));
 
     controllerStateTransceiver.onEvent(0);
     controllerStateTransceiver.onEvent(1);

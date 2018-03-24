@@ -7,7 +7,7 @@
 namespace mark_os {
     namespace controller {
         ControllerState ControllerReceiver::readControllerState() {
-            return receiver->receive(channelId);
+            return receiver->receive().content;
         }
     }
 }
