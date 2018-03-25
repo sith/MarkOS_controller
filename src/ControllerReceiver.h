@@ -12,8 +12,11 @@
 namespace mark_os {
     namespace controller {
         class ControllerReceiver : public Controller {
-            mark_os::communication::Receiver<ControllerState> *receiver;
+            communication::Receiver<ControllerState> *receiver;
+            ControllerState currentControllerState;
         public:
+            explicit ControllerReceiver(communication::Receiver<ControllerState> &receiver);
+
             ControllerState readControllerState() override;
         };
     }

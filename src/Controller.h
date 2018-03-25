@@ -14,6 +14,7 @@ namespace mark_os {
     namespace controller {
         class Controller {
         public:
+            //TODO this call probably can return Optional
             virtual ControllerState readControllerState()= 0;
         };
     }

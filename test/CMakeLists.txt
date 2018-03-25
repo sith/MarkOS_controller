@@ -5,7 +5,7 @@ add_executable(controller_test
         ControllerStateTransceiverTest.h
         ControllerStateTransceiverTest.cpp
         MockController.h
-        )
+        ControllerReceiverTest.cpp ControllerReceiverTest.h)
 
 
 #Link with GoogleTest
