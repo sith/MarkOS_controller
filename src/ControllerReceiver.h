@@ -13,7 +13,6 @@ namespace mark_os {
     namespace controller {
         class ControllerReceiver : public Controller {
             mark_os::communication::Receiver<ControllerState> *receiver;
-            uint8 channelId;
         public:
             ControllerState readControllerState() override;
         };
