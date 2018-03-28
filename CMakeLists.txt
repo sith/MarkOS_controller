@@ -9,7 +9,7 @@ add_library(${PROJECT_NAME}
         src/ControllerStateTransceiver.cpp
         src/ControllerStateTransceiver.h
         src/Environment.h
-        src/Environment.cpp test/MockReceiver.h)
+        src/Environment.cpp)
 
 target_link_libraries(${PROJECT_NAME} LINK_PUBLIC MarkOS_communication)
 target_link_libraries(${PROJECT_NAME} LINK_PUBLIC MarkOS_cycle)
