@@ -6,15 +6,14 @@
 
 namespace mark_os {
     namespace controller {
-        ControllerState ControllerReceiver::readControllerState() {
+        commons::Optional<ControllerState> ControllerReceiver::readControllerState() {
             auto message = receiver->receive();
-            if (message.isPresent()) {
+            if (message) {
                 if (message.get().signature == Message<ControllerState>::version) {
-                    currentControllerState = message.get().content;
-                    return currentControllerState;
+                    return commons::optional(message().content);
                 }
             }
-            return currentControllerState;
+            return commons::none<ControllerState>();
         }
 
         ControllerReceiver::ControllerReceiver(communication::Receiver<ControllerState> &receiver) : receiver(

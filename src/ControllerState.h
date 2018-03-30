@@ -5,6 +5,8 @@
 
 namespace mark_os {
     namespace controller {
+        static const int tolerance = 10;
+
         struct ControllerState {
             int16 leftX = 0;
             int16 leftY = 0;
@@ -18,8 +20,11 @@ namespace mark_os {
             bool y = false;
 
             bool operator==(const ControllerState &rhs) const {
-                return leftX == rhs.leftX &&
-                       leftY == rhs.leftY &&
+                int16 leftXDiff = leftX - rhs.leftX;
+                int16 leftYDiff = leftY - rhs.leftY;
+
+                return (leftXDiff < tolerance && leftXDiff > -tolerance) &&
+                       (leftYDiff < tolerance && leftYDiff > -tolerance) &&
                        rightX == rhs.rightX &&
                        rightY == rhs.rightY &&
                        left == rhs.left &&

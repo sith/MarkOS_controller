@@ -10,11 +10,12 @@
 
 using mark_os::controller::Controller;
 using mark_os::controller::ControllerState;
+using mark_os::commons::Optional;
 
 class MockController : public Controller {
 public:
     MOCK_METHOD0(readControllerState,
-                 ControllerState());
+                 Optional<ControllerState>());
 };
 
 

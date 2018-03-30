@@ -27,7 +27,7 @@ TEST_F(ControllerReceiverTest, receiveMessage) {
 
     auto actualControllerState = controllerReceiver.readControllerState();
 
-    ASSERT_EQ(actualControllerState, expectedControllerState);
+    ASSERT_EQ(actualControllerState, mark_os::commons::Optional<ControllerState>(expectedControllerState));
 }
 
 TEST_F(ControllerReceiverTest, receiveInvalidMessage) {

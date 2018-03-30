@@ -9,13 +9,13 @@
 #include <CycleListener.h>
 #include <Transceiver.h>
 #include "ControllerState.h"
+#include <util/Optional.h>
 
 namespace mark_os {
     namespace controller {
         class Controller {
         public:
-            //TODO this call probably can return Optional
-            virtual ControllerState readControllerState()= 0;
+            virtual mark_os::commons::Optional<ControllerState> readControllerState()= 0;
         };
     }
 }

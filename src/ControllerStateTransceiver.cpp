@@ -8,9 +8,14 @@ namespace mark_os {
     namespace controller {
         void ControllerStateTransceiver::onEvent(unsigned long cycleNumber) {
             auto state = controller->readControllerState();
-            if (state != previousControllerState) {
-                previousControllerState = state;
-                Message<ControllerState> message{0, 0, state};
+
+            if (!state.isPresent()) {
+                return;
+            }
+
+            if (state.get() != previousControllerState) {
+                previousControllerState = state.get();
+                Message<ControllerState> message{0, 0, state.get()};
                 transceiver->send(message);
             }
         }
