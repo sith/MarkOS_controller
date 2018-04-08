@@ -46,8 +46,8 @@ TEST_F(ControllerStateTransceiverTest, joystickSensetivity) {
     firstState.leftY = -100;
 
     ControllerState secondState;
-    secondState.leftX = 109;
-    secondState.leftY = -91;
+    secondState.leftX = 149;
+    secondState.leftY = -51;
 
     EXPECT_CALL(controller, readControllerState()).Times(2)
             .WillOnce(Return(firstState))

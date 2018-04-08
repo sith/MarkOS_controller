@@ -5,7 +5,7 @@
 
 namespace mark_os {
     namespace controller {
-        static const int tolerance = 10;
+        static const int tolerance = 50;
 
         struct ControllerState {
             int16 leftX = 0;
