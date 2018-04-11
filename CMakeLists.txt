@@ -9,7 +9,7 @@ add_library(${PROJECT_NAME}
         src/ControllerStateTransceiver.cpp
         src/ControllerStateTransceiver.h
         src/Environment.h
-        src/Environment.cpp)
+        src/Environment.cpp src/JoystickToleranceAwareController.cpp src/JoystickToleranceAwareController.h)
 
 target_link_libraries(${PROJECT_NAME} LINK_PUBLIC MarkOS_communication)
 target_link_libraries(${PROJECT_NAME} LINK_PUBLIC MarkOS_cycle)

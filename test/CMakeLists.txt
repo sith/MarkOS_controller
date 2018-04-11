@@ -12,7 +12,7 @@ add_executable(${PROJECT_NAME}
         ControllerReceiverTest.cpp
         ControllerReceiverTest.h
         MockReceiver.h
-        )
+        JoystickToleranceAwareControllerTest.cpp JoystickToleranceAwareControllerTest.h)
 
 
 #Link with GoogleTest

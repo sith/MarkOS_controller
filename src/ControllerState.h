@@ -5,7 +5,7 @@
 
 namespace mark_os {
     namespace controller {
-        static const int tolerance = 50;
+        static const int joystickTolerance = 50;
 
         struct ControllerState {
             int16 leftX = 0;
@@ -23,8 +23,8 @@ namespace mark_os {
                 int16 leftXDiff = leftX - rhs.leftX;
                 int16 leftYDiff = leftY - rhs.leftY;
 
-                return (leftXDiff < tolerance && leftXDiff > -tolerance) &&
-                       (leftYDiff < tolerance && leftYDiff > -tolerance) &&
+                return (leftXDiff < joystickTolerance && leftXDiff > -joystickTolerance) &&
+                       (leftYDiff < joystickTolerance && leftYDiff > -joystickTolerance) &&
                        rightX == rhs.rightX &&
                        rightY == rhs.rightY &&
                        left == rhs.left &&

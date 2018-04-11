@@ -1,7 +1,3 @@
-//
-// Created by Oleksandra Baukh on 3/21/18.
-//
-
 #include "ControllerReceiver.h"
 
 namespace mark_os {
