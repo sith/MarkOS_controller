@@ -1,8 +1,8 @@
-#include "ControllerReceiver.h"
+#include "ControllerStateReceiver.h"
 
 namespace mark_os {
     namespace controller {
-        commons::Optional<ControllerState> ControllerReceiver::readControllerState() {
+        commons::Optional<ControllerState> ControllerStateReceiver::readControllerState() {
             auto message = receiver->receive();
             if (message) {
                 if (message.get().signature == Message<ControllerState>::version) {
@@ -12,7 +12,7 @@ namespace mark_os {
             return commons::none<ControllerState>();
         }
 
-        ControllerReceiver::ControllerReceiver(communication::Receiver<ControllerState> &receiver) : receiver(
+        ControllerStateReceiver::ControllerStateReceiver(communication::Receiver<ControllerState> &receiver) : receiver(
                 &receiver) {}
     }
 }

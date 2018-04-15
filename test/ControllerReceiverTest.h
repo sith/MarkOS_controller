@@ -7,7 +7,7 @@
 
 
 #include <gtest/gtest.h>
-#include <ControllerReceiver.h>
+#include <ControllerStateReceiver.h>
 #include "MockReceiver.h"
 
 using mark_os::controller::ControllerState;
@@ -18,7 +18,7 @@ class ControllerReceiverTest : public testing::Test {
 protected:
 
     mark_os::communication::MockReceiver<ControllerState> mockReceiver;
-    mark_os::controller::ControllerReceiver controllerReceiver{mockReceiver};
+    mark_os::controller::ControllerStateReceiver controllerReceiver{mockReceiver};
 
     void SetUp() override;
 

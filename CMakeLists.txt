@@ -4,8 +4,8 @@ project(MarkOS_controller)
 add_library(${PROJECT_NAME}
         src/Controller.h
         src/ControllerState.h
-        src/ControllerReceiver.cpp
-        src/ControllerReceiver.h
+        src/ControllerStateReceiver.cpp
+        src/ControllerStateReceiver.h
         src/ControllerStateTransceiver.cpp
         src/ControllerStateTransceiver.h
         src/Environment.h
